@@ -2,32 +2,28 @@ import React from 'react';
 import createBoard from "../utils/utils.js"; 
 import Cell from './Cell.jsx';
 
-class Board extends React.Component {
+const boardSize = 25;
+const numberOfMines = 7;
 
+class Board extends React.Component {
   constructor(props) {
     super(props);
 
-    const boardSize = 25;
-    const numberOfMines = 7;
     const cells = createBoard(boardSize, numberOfMines);
 
     this.state = {
       cells: cells,
     };
-
-    // this.handleClick = this.handleClick.bind(this); //Behövs nog inte pga ändrade till arrow function 
   }
 
   handleClick = (index) => {
-    const updatedCells = [...this.state.cells];
-
-    if (!updatedCells[index].visible) updatedCells[index] = { ...updatedCells[index], visible: true };
-
-    this.setState({ 
-      cells: updatedCells 
-    });
-  }
-
+    const { cells } = this.state;
+    if (cells[index].visible) return;
+  
+    const updatedCells = [...cells];
+    updatedCells[index] = { ...updatedCells[index], visible: true };
+    this.setState({ cells: updatedCells });
+  };
 
   render() {
     
@@ -42,8 +38,7 @@ class Board extends React.Component {
         </div> 
 
         <div className='winLooseInfo'>
-          {/* Game over!/Game won!  */}
-          {/* Glöm inte fixa denna */}
+
         </div>
 
       </div>
@@ -52,6 +47,5 @@ class Board extends React.Component {
 }
 
 export default Board;
-
 
   
