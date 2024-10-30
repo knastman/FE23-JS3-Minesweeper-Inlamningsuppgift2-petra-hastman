@@ -5,12 +5,9 @@
 .wrapper{
   width: 200px;
   margin: 30px auto;
-  /* background-color: azure; */
-
 }
+
 .cellboard{
-  /* background-color: rgb(198, 198, 198);
-  background-color: lightgrey; */
   width: 200px;
   height:200px;
   display:grid;
@@ -31,46 +28,8 @@
   height:38px;
 }
 
-.cell-clicked{
-  color: #787878;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: #ebebeb;
-  font-size:30px;
-  width:38px;
-  height:38px;
-}
-
 .cell:hover {
   background-color: rgb(189, 189, 189);
-}
-
-.cell-mine{
-  padding: 5px;
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:1px solid #c8c8c8;
-  cursor: pointer;
-  background-color: #ebebeb;
-  color: #787878;
-  aspect-ratio: 1 / 1;
-  
-}
-
-.cell-mine2{
-  padding: 5px;
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:1px solid #c8c8c8;
-  cursor: pointer;
-  background-color: #ebebeb;
-  color: #787878;
-  /* background-image: url(bomb.svg); */
 }
 
 .winLooseInfo{

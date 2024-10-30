@@ -15,14 +15,16 @@ class Board extends React.Component {
       cells: cells,
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this); //Behövs nog inte pga ändrade till arrow function 
   }
 
-  handleClick(index) {
+  handleClick = (index) => {
     const updatedCells = [...this.state.cells];
-    updatedCells[index].content = updatedCells[index].hasMine ? '💣' : updatedCells[index].numberOfNeighbouringMines;
-    this.setState({
-      cells: updatedCells
+
+    if (!updatedCells[index].visible) updatedCells[index] = { ...updatedCells[index], visible: true };
+
+    this.setState({ 
+      cells: updatedCells 
     });
   }
 
@@ -35,11 +37,13 @@ class Board extends React.Component {
 
         <div className='cellboard'>
           {this.state.cells.map((cell, index) => (
-            <Cell key={index} cell={cell.content || '?'} onClick={() => this.handleClick(index)} /> 
+            <Cell key={index} cell={cell} onClick={() => this.handleClick(index)} />
           ))}
         </div> 
+
         <div className='winLooseInfo'>
-          Game over!/Game won!
+          {/* Game over!/Game won!  */}
+          {/* Glöm inte fixa denna */}
         </div>
 
       </div>

@@ -1,11 +1,13 @@
-import '../Minesweeper.css';
+import React from 'react';
 
-export default function Cell(props){
+function Cell(props) {
+  const { hasMine, numberOfNeighbouringMines, visible } = props.cell;
 
   return (
     <div className="cell" onClick={props.onClick}>
-      {props.cell}
+      {visible ? (hasMine ? '💣' : numberOfNeighbouringMines) : "?"}
     </div>
-  
   );
 }
+
+export default Cell;
