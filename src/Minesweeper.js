@@ -4,8 +4,7 @@ import Board from "./components/Board";
 function Minesweeper() {
   return (
     <div className="Minesweeper">
-      <h2>Minröjning</h2>
-      <Board />
+      <Board boardSize={25} numberOfMines={7} />
     </div>
   );
 }

@@ -2,14 +2,11 @@ import React from 'react';
 import createBoard from "../utils/utils.js"; 
 import Cell from './Cell.jsx';
 
-const boardSize = 25;
-const numberOfMines = 7;
-
 class Board extends React.Component {
   constructor(props) {
     super(props);
 
-    const cells = createBoard(boardSize, numberOfMines);
+    const cells = createBoard(this.props.boardSize, this.props.numberOfMines);
 
     this.state = {
       cells: cells,
@@ -27,17 +24,17 @@ class Board extends React.Component {
 
   render() {
     
+
     return (
       <div className="wrapper">
-        <h3>Minröjning</h3> 
-
+        <h3>Minesweeper</h3> 
         <div className='cellboard'>
           {this.state.cells.map((cell, index) => (
             <Cell key={index} cell={cell} onClick={() => this.handleClick(index)} />
           ))}
         </div> 
 
-        <div className='winLooseInfo'>
+        <div className='winLoseInfo'>
 
         </div>
 
